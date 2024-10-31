@@ -31,6 +31,78 @@ variable "nfs" {
   }
 }
 
+variable "db_default" {
+  type = map(any)
+  default = {
+    "name"        = "db"
+    "description" = "db default volume"
+    "disk_size"   = 100
+    "volume_type" = "__DEFAULT__"
+  }
+}
+
+variable "db_ssd" {
+  type = map(any)
+  default = {
+    "name"        = "db"
+    "description" = "db ssd volume"
+    "disk_size"   = 100
+    "volume_type" = "ssd"
+  }
+}
+
+variable "galaxy" {
+  type = map(any)
+  default = {
+    "name"        = "galaxy"
+    "description" = "galaxy volume"
+    "disk_size"   = 500
+    "volume_type" = "__DEFAULT__"
+  }
+}
+
+variable "galaxy_data" {
+  type = map(any)
+  default = {
+    "name"        = "galaxy"
+    "description" = "galaxy ssd volume"
+    "disk_size"   = 10240
+    "volume_type" = "ssd"
+  }
+}
+
+variable "galaxy_conda" {
+  type = map(any)
+  default = {
+    "name"        = "galaxy"
+    "description" = "galaxy conda volume"
+    "disk_size"   = 5120
+    "volume_type" = "__DEFAULT__"
+  }
+}
+
+variable "backup" {
+  type = map(any)
+  default = {
+    "name"        = "backup"
+    "description" = "backup volume"
+    "disk_size"   = 100
+    "volume_type" = "__DEFAULT__"
+  }
+}
+
+
+variable "replica" {
+  type = map(any)
+  default = {
+    "name"        = "replica"
+    "description" = "replica volume"
+    "disk_size"   = 100
+    "volume_type" = "__DEFAULT__"
+  }
+}
+
+
 variable "private_network" {
   type = map(any)
   default = {
@@ -48,15 +120,14 @@ variable "public_network" {
 variable "flavors" {
   type = map(any)
   default = {
-    "central-manager" = "fl.ada.s"
-    "database"        = "fl.ada.l"
-    "replica"         = "fl.ada.s"
-    "backup"          = "fl.ada.s"
-    "galaxy"          = "fl.ada.l"
-    "mastervm"        = "fl.ada.s"
-    "nfs-server"      = "fl.ada.m"
-    "rabbitmq"        = "fl.ada.s"
-    "ftp"             = "fl.ada.s"
+    "central-manager" = "xlarge"
+    "database"        = "8cpu-32GB-50dsk"
+    "replica"         = "large"
+    "backup"          = "large"
+    "galaxy"          = "8cpu-32GB-50dsk"
+    "mastervm"        = "large"
+    "nfs-server"      = "large"
+    "rabbitmq"        = "large"
   }
 }
 

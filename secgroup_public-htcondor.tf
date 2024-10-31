@@ -18,7 +18,7 @@ resource "openstack_networking_secgroup_rule_v2" "public-condor-rule6" {
   direction         = "ingress"
   ethertype         = "IPv6"
   protocol          = "tcp"
-  remote_ip_prefix  = "0.0.0.0/0"
+  remote_ip_prefix  = "::/0"
   port_range_min    = "9618"
   port_range_max    = "9618"
   security_group_id = openstack_networking_secgroup_v2.condor.id
